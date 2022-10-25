@@ -1,13 +1,11 @@
 package week1.exercises;
 
-import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 import java.text.DecimalFormat;
 
 class HenkiloMapSovellus {
 	
-	private Scanner input = new Scanner(System.in);
 	private Map<String, Henkilo> henkilot = new HashMap<String, Henkilo>();
 	private Lukija lukija = new Lukija();
 	
