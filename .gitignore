@@ -25,5 +25,8 @@ hs_err_pid*
 # dev environment
 .settings/
 bin/
+lib/
+databases/
+src/examples/
 *.project
 *.classpath
