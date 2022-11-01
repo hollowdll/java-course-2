@@ -13,22 +13,22 @@ public class AsiakasOhjelma {
 	private String sqlQuery;
 	private Lukija lukija = new Lukija();
 	
-	private Connection yhdista() {		
-    	Connection connection = null;
-    	final String DB = "databases/Myynti.sqlite";
-    	final String ROOT_PATH = System.getProperty("user.dir") + "/";    	// project root path
-    	final String URL = "jdbc:sqlite:" + ROOT_PATH + DB;    
-    	
-    	try {	       
-    		Class.forName("org.sqlite.JDBC");
+	private Connection yhdista() {
+		Connection connection = null;
+		final String DB = "databases/Myynti.sqlite";
+		final String ROOT_PATH = System.getProperty("user.dir") + "/";    	// project root path
+		final String URL = "jdbc:sqlite:" + ROOT_PATH + DB;    
+		
+		try {	       
+			Class.forName("org.sqlite.JDBC");	// try to find database driver
 	        connection = DriverManager.getConnection(URL);
 	        
 	     } catch (Exception e) {	
 	    	System.out.println("Yhteyden avaus epäonnistui");
 	        e.printStackTrace();	         
 	     }
-    	
-    	return connection;
+		
+		return connection;
 	}
 	
 	public void naytaValikko() {
