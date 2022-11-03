@@ -21,11 +21,11 @@ public class AsiakasOhjelma {
 		
 		try {	       
 			Class.forName("org.sqlite.JDBC");	// try to find database driver
-	        connection = DriverManager.getConnection(URL);
+			connection = DriverManager.getConnection(URL);
 	        
 	     } catch (Exception e) {	
 	    	System.out.println("Yhteyden avaus epäonnistui");
-	        e.printStackTrace();	         
+	        e.printStackTrace();
 	     }
 		
 		return connection;
@@ -36,10 +36,10 @@ public class AsiakasOhjelma {
 		
 		while (valinta != 0) {
 			System.out.println("\n1. Lisää asiakas"
-					+ "\n2. Näytä asiakkaat"
-					+ "\n3. Muuta asiakas"
-					+ "\n4. Poista asiakas"
-					+ "\n0. Lopetus");
+								+ "\n2. Näytä asiakkaat"
+								+ "\n3. Muuta asiakas"
+								+ "\n4. Poista asiakas"
+								+ "\n0. Lopetus");
 
 			valinta = lukija.lueKokonaisluku("Valintasi: ");
 			
@@ -119,7 +119,7 @@ public class AsiakasOhjelma {
 					System.out.println();
 					while (resultSet.next()) {
 						// 5 datakenttää
-						System.out.print(resultSet.getString(1) + "\t\t");
+						System.out.print(resultSet.getInt(1) + "\t\t");
 						System.out.print(resultSet.getString(2) + "\t\t");
 						System.out.print(resultSet.getString(3) + "\t\t");
 						System.out.print(resultSet.getString(4) + "\t\t");
@@ -150,7 +150,7 @@ public class AsiakasOhjelma {
 			if (connection != null) { 	//jos yhteys onnistui
 				stmtPrep = connection.prepareStatement(sqlQuery); 
 				stmtPrep.setInt(1, asiakasId);
-        		resultSet = stmtPrep.executeQuery();
+				resultSet = stmtPrep.executeQuery();
         		
         		if (resultSet.isBeforeFirst()) { 	//jos kysely tuotti dataa, eli id on käytössä
         			String etunimi = lukija.lueTeksti("Anna uusi etunimi (enter ohittaa): ");
@@ -207,7 +207,7 @@ public class AsiakasOhjelma {
 			if (connection != null) { 	//jos yhteys onnistui
 				stmtPrep = connection.prepareStatement(sqlQuery); 
 				stmtPrep.setInt(1, asiakas_id);
-        		resultSet = stmtPrep.executeQuery();
+				resultSet = stmtPrep.executeQuery();
         		
         		if (resultSet.isBeforeFirst()) { 	//jos kysely tuotti dataa
         			resultSet.next();	 //siirryttään 1. tietueriville
